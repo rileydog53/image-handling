@@ -6,7 +6,7 @@ set -e
 cd "$(dirname "$0")"
 
 PROJECT_DIR="$(pwd)"
-VENV_PYTHON="/Users/josephardizzone/Desktop/Claude/.venv/bin/uvicorn"
+VENV_PYTHON="/Users/josephardizzone/Desktop/.venv/bin/uvicorn"
 LOG_DIR="$PROJECT_DIR/.logs"
 mkdir -p "$LOG_DIR"
 

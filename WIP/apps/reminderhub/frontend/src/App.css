@@ -1,28 +1,103 @@
+/* ─────────────────────────────────────────────
+   App.css — Dashboard layout styles
+   ───────────────────────────────────────────── */
+
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
 }
 
-.app-header {
-  padding: 24px 24px 0;
+/* ── Top bar: clock left, date right ── */
+.top-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid #d1d1d6;
+  background: #fff;
 }
 
-.app-header h1 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.3px;
+.top-bar-time {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   color: #1c1c1e;
 }
 
+.top-bar-date {
+  font-size: 15px;
+  font-weight: 500;
+  color: #636366;
+}
+
+/* ── Main content ── */
 .app-main {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 20px 24px 32px;
-  max-width: 600px;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 24px 32px;
+  max-width: 480px;
   width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Mini calendar ── */
+.mini-cal {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d1d1d6;
+  border-radius: 12px;
+  padding: 14px 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.mini-cal-header {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c1c1e;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.mini-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+  text-align: center;
+}
+
+.mini-cal-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e8e93;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.mini-cal-day {
+  font-size: 13px;
+  color: #1c1c1e;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px auto;
+  width: 30px;
+  height: 30px;
+}
+
+.mini-cal-today {
+  background: #007aff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.mini-cal-empty {
+  visibility: hidden;
 }
 
 /* ── Input ── */
@@ -55,6 +130,7 @@
 
 /* ── Preview panel ── */
 .preview-panel {
+  width: 100%;
   background: #fff;
   border: 1px solid #d1d1d6;
   border-radius: 12px;
@@ -133,6 +209,7 @@
 
 /* ── Send row ── */
 .send-row {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;

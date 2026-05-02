@@ -1,4 +1,12 @@
+// ─────────────────────────────────────────────
+// App.tsx — Root of the React app (dashboard layout)
+//
+// Layout: top bar (clock + date) → calendar → reminder input → preview → send
+// ─────────────────────────────────────────────
+
 import { useState } from "react";
+import { Clock } from "./components/Clock";
+import { MiniCalendar } from "./components/MiniCalendar";
 import { PreviewPanel } from "./components/PreviewPanel";
 import { ReminderInput } from "./components/ReminderInput";
 import { SendButton } from "./components/SendButton";
@@ -9,6 +17,7 @@ import "./App.css";
 
 export default function App() {
   useHeartbeat();
+
   const [text, setText] = useState("");
   const { parsed, isLoading, error } = useLiveParse(text);
   const { send, sending, feedback } = useSend(parsed, () => setText(""));
@@ -17,11 +26,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>ReminderHub</h1>
-      </header>
+      {/* ── Top bar: time on left, date on right ── */}
+      <Clock />
 
+      {/* ── Main content area ── */}
       <main className="app-main">
+        <MiniCalendar />
+
         <ReminderInput
           value={text}
           onChange={setText}
